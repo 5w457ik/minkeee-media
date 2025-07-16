@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minkeee - Make an Impact.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:ital,wght@0,400;0,500;0,700;0,900;1,300&display=swap" rel="stylesheet">
+    <script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    serif: ['Montserrat', 'sans-serif'],
+                    sans: ['Inter', 'sans-serif'],
+                },
+            },
+        },
+    };
+    </script>
+    <style type="text/tailwindcss">
+        :root {
+            --primary-gold: #C49A6C;
+            --primary-gold-light: #E2C49A;
+            --dark-charcoal: #2C2C2C;
+            --medium-dark-grey: #333333;
+            --light-greyish-white: #EAEAEA;
+            --pure-white: #FFFFFF;
+            --light-cream-beige: #F5F3F0;
+
+            /* Light Theme */
+            --bg-color: var(--light-cream-beige);
+            --text-color: var(--dark-charcoal);
+            --text-color-medium: var(--medium-dark-grey);
+            --text-color-light: #525252;
+            --btn-text-color: var(--dark-charcoal);
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --header-bg: rgba(255, 255, 255, 0.1);
+            --header-blur-bg: rgba(255, 255, 255, 0.25);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --input-bg: rgba(255, 255, 255, 0.8);
+        }
+
+        html.dark {
+            --primary-gold: #D4AF8A;
+            --primary-gold-light: #EACDAE;
+            --dark-charcoal: #EAEAEA; /* Becomes light text */
+            --medium-dark-grey: #a0aec0; /* Becomes lighter grey text */
+            
+            /* Dark Theme */
+            --bg-color: #1a1d22;
+            --text-color: #EAEAEA;
+            --text-color-medium: #a0aec0;
+            --text-color-light: #9ca3af;
+            --btn-text-color: #2C2C2C; /* Keep button text dark */
+            --card-bg: rgba(45, 55, 72, 0.5);
+            --header-bg: rgba(26, 29, 34, 0.1);
+            --header-blur-bg: rgba(26, 29, 34, 0.3);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(45, 55, 72, 0.7);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-gradient {
+            background-image: linear-gradient(to right, var(--primary-gold), var(--primary-gold-light));
+        }
+        .btn-gradient:hover {
+            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        }
+        .hero-bg {
+             background-color: var(--bg-color);
+        }
+    </style>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.8.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
